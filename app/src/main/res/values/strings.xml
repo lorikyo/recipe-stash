@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Recipe Stash</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="random_meal_title">Meal of the day</string>
+    <string name="meal_list_title">Recipes</string>
+    <string name="list_item_meal_content_description_media">meal image</string>
+    <string name="list_item_meal_add_to_stash">Add to stash</string>
 </resources>

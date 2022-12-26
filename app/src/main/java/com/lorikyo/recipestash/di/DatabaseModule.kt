@@ -30,12 +30,22 @@ class DatabaseModule {
     }
 
     @Provides
+    fun provideIngredientMeasureDao(appDatabase: AppDatabase): IngredientMeasureDao {
+        return appDatabase.ingredientMeasureDao()
+    }
+
+    @Provides
     fun provideMealDao(appDatabase: AppDatabase): MealDao {
         return appDatabase.mealDao()
     }
 
     @Provides
-    fun provideMealOfTheDayDao(appDatabase: AppDatabase): MealOfTheDayDao {
-        return appDatabase.mealOfTheDayDao()
+    fun provideFeedMealIngredientMeasureDao(appDatabase: AppDatabase): FeedMealIngredientMeasureDao {
+        return appDatabase.feedMealIngredientMeasureDao()
+    }
+
+    @Provides
+    fun provideFeedMealDao(appDatabase: AppDatabase): FeedMealDao {
+        return appDatabase.feedMealDao()
     }
 }

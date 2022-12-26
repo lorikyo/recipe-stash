@@ -18,6 +18,6 @@
             android:layout_height="match_parent"
             android:clipToPadding="false"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/list_item_meal" />
+            tools:listitem="@layout/meal_viewholder" />
     </FrameLayout>
 </layout>

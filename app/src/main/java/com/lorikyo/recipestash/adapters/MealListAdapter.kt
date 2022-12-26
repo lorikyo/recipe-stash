@@ -3,32 +3,32 @@ package com.lorikyo.recipestash.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.lorikyo.recipestash.R
+import com.lorikyo.recipestash.databinding.MealViewholderBinding
 import com.lorikyo.recipestash.models.MealDto
-import com.lorikyo.recipestash.databinding.ListItemMealBinding
 
-class MealListAdapter: ListAdapter<MealDto, MealListAdapter.ViewHolder>(MealDiffCallback()) {
+class MealListAdapter : PagingDataAdapter<MealDto, MealListAdapter.MealViewHolder>(MealDiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(
-            DataBindingUtil.inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealViewHolder {
+        return MealViewHolder(
+            MealViewholderBinding.inflate(
                 LayoutInflater.from(parent.context),
-                R.layout.list_item_meal,
                 parent,
                 false
             )
         )
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position))
+    override fun onBindViewHolder(holder: MealViewHolder, position: Int) {
+        val meal = getItem(position)
+        if (meal != null) {
+            holder.bind(meal)
+        }
     }
 
-    class ViewHolder(private val binding: ListItemMealBinding) : RecyclerView.ViewHolder(binding.root) {
+    class MealViewHolder(private val binding: MealViewholderBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.setClickListener { view ->
                 binding.meal?.idMeal?.let { mealId ->
@@ -40,9 +40,9 @@ class MealListAdapter: ListAdapter<MealDto, MealListAdapter.ViewHolder>(MealDiff
         private fun navigateToMeal(mealId: String, view: View) {
         }
 
-        fun bind(listMeal: MealDto) {
-            with(binding){
-                meal = listMeal
+        fun bind(mealDto: MealDto) {
+            with(binding) {
+                meal = mealDto
                 executePendingBindings()
             }
         }

@@ -1,19 +1,22 @@
 package com.lorikyo.recipestash.data
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import androidx.room.Transaction
+import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MealDao {
 
-    @Query("SELECT * FROM meal ORDER BY datetime_modified DESC")
-    fun getMeals(): Flow<List<Meal>>
+    @Query("SELECT * FROM meal ORDER BY datetime_modified DESC LIMIT :limit OFFSET :offset")
+    suspend fun getMeals(limit: Int, offset: Int): List<Meal>
+
+    @Query("SELECT * FROM meal WHERE id_meal = :idMeal")
+    suspend fun getMealByIdMeal(idMeal: String): Meal
+
+    @Transaction
+    @Query("SELECT * FROM meal WHERE id = :id")
+    fun getMealIngredientMeasures(id: Long): Flow<MealAndIngredientMeasures>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(meals: List<Meal>)
+    suspend fun insert(meal: Meal): Long
 
 }

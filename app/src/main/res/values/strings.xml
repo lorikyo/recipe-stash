@@ -5,5 +5,6 @@
     <string name="random_meal_title">Meal of the day</string>
     <string name="meal_list_title">Recipes</string>
     <string name="list_item_meal_content_description_media">meal image</string>
-    <string name="list_item_meal_add_to_stash">Add to stash</string>
+    <string name="add_to_stash">Add to stash</string>
+    <string name="added_to_stash">Added to stash</string>
 </resources>

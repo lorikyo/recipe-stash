@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MealOfTheDayFragment">
+    tools:context=".FeedMealFragment">
 
     <data>
         <variable
@@ -100,6 +100,17 @@
                         android:textColor="@color/white"
                         tools:text="category" />
                 </LinearLayout>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fab_add_to_stash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="16dp"
+                    android:contentDescription="@string/add_to_stash"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    style="?attr/floatingActionButtonLargePrimaryStyle"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
@@ -114,7 +125,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ingredients"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@color/purple_700"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -128,13 +141,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Instructions"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@color/purple_700"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/instructions"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@{meal.strInstructions}"
+                    android:textSize="16sp"
                     tools:text="instructions - Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
             </LinearLayout>
 

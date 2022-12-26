@@ -5,8 +5,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Area::class, Category::class, Meal::class, MealOfTheDay::class], version = 1, exportSchema = false)
-abstract class AppDatabase: RoomDatabase() {
+@Database(
+    entities = [Area::class, Category::class, IngredientMeasure::class, Meal::class, FeedMeal::class, FeedMealIngredientMeasure::class],
+    version = 1,
+    exportSchema = false
+)
+abstract class AppDatabase : RoomDatabase() {
 
     companion object {
         @Volatile
@@ -29,8 +33,12 @@ abstract class AppDatabase: RoomDatabase() {
 
     abstract fun categoryDao(): CategoryDao
 
+    abstract fun ingredientMeasureDao(): IngredientMeasureDao
+
     abstract fun mealDao(): MealDao
 
-    abstract fun mealOfTheDayDao(): MealOfTheDayDao
+    abstract fun feedMealIngredientMeasureDao(): FeedMealIngredientMeasureDao
+
+    abstract fun feedMealDao(): FeedMealDao
 
 }

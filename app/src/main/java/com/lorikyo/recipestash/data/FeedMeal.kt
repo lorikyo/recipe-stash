@@ -4,8 +4,8 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "meal")
-data class Meal(
+@Entity(tableName = "feed_meal")
+data class FeedMeal(
     @ColumnInfo(name = "datetime_modified") val dateTimeModified: Long,
     @ColumnInfo(name = "source") val source: String,
 

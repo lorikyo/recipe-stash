@@ -24,15 +24,15 @@ fun bindImageFromUrl(imgView: ImageView, imgUrl: String?) {
 
 }
 
-@BindingAdapter("inflateData")
-fun bindIngredients(linearLayout: LinearLayout, mealDto: MealDto?) {
-    mealDto?.let {
-        linearLayout.removeViews(1, linearLayout.childCount - 1)
-        val inflater: LayoutInflater = LayoutInflater.from(linearLayout.context)
-        if(!mealDto.strIngredient1.isNullOrEmpty()) {
-            val view = inflater.inflate(R.layout.ingredient, linearLayout, true)
-            val textView = view.findViewById<TextView>(R.id.ingredient)
-            textView.text = mealDto.strIngredient1
-        }
-    }
-}
+//@BindingAdapter("inflateData")
+//fun bindIngredients(linearLayout: LinearLayout, mealDto: MealDto?) {
+//    mealDto?.let {
+//        linearLayout.removeViews(1, linearLayout.childCount - 1)
+//        val inflater: LayoutInflater = LayoutInflater.from(linearLayout.context)
+//        it.ingredientMeasures.forEach { ingredientMeasureDto ->
+//            val ingredientMeasureView = inflater.inflate(R.layout.ingredient, linearLayout, true)
+//            ingredientMeasureView.findViewById<TextView>(R.id.name).text = ingredientMeasureDto.name
+////            ingredientMeasureView.findViewById<TextView>(R.id.measure).text = ingredientMeasureDto.measure
+//        }
+//    }
+//}

@@ -7,4 +7,5 @@
     <string name="list_item_meal_content_description_media">meal image</string>
     <string name="add_to_stash">Add to stash</string>
     <string name="added_to_stash">Added to stash</string>
+    <string name="menu_add_recipe">Add recipe</string>
 </resources>

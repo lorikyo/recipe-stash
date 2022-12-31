@@ -10,11 +10,8 @@
             type="com.lorikyo.recipestash.models.MealDto" />
     </data>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
         <LinearLayout
+            android:id="@+id/layout_feed_meal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -160,6 +157,10 @@
                 android:layout_height="wrap_content"
                 android:text="Button" />
 
+            <Space
+                android:id="@+id/space"
+                android:layout_width="match_parent"
+                android:layout_height="100dp" />
+
         </LinearLayout>
-    </ScrollView>
 </layout>

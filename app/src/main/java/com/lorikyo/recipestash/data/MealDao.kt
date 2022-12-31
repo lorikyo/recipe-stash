@@ -16,7 +16,7 @@ interface MealDao {
     @Query("SELECT * FROM meal WHERE id = :id")
     fun getMealIngredientMeasures(id: Long): Flow<MealAndIngredientMeasures>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun insert(meal: Meal): Long
 
 }
